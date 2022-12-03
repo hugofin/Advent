@@ -1,15 +1,15 @@
-opened = open("01data.txt")
+data = open("day01data.txt")
 
 elf_snacks = []
 total = 0
 
-for item in opened:
-    snack = item.split("\n\n")
-    if snack[0] == '\n':
+for snack in data:
+    print(snack)
+    if snack == '\n':
         elf_snacks.append(total)
         total = 0
     else:
-        total += int(snack[0])
+        total += int(snack)
 
 elf_snacks.sort(reverse = True)
 
