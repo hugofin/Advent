@@ -10,15 +10,11 @@ for row in range(9):
         if (current_line[1 + 4 * i] != ' '):
             temp = stacks[i + 1]
             temp.append(current_line[1 + 4 * i])
-            stacks.update({ i + 1 : temp})
-
-print(stacks)
+            stacks.update({i + 1 : temp})
 
 for row in data[10:512]:
 
     instructions = row.split(' ')
-
-    print(instructions)
 
     amount = int(instructions[1])
     start = int(instructions[3])
@@ -36,7 +32,8 @@ for row in data[10:512]:
     stacks.update({start : took_from})
     stacks.update({destination : cargo})
 
-    print(stacks)
-
+answer = ''
 for i in range(1,10):
-    print(stacks[i][0])
+    answer += stacks[i][0]
+
+print(answer)
