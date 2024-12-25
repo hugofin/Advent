@@ -2,14 +2,9 @@ with open('day03.txt') as file:
     data = file.read().strip('\n')
 
 on_mul = data.split('mul(')
-allowed_chars = ['1','2','3','4','5','6','7','8','9','0']
 
 def all_ints(string):
-    for char in string:
-        if char not in allowed_chars:
-            return False
-        
-    return True
+    return all(char.isdigit() for char in string)
 
 total_1, total_2 = 0, 0
 
