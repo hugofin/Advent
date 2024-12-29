@@ -1,18 +1,25 @@
 import itertools
-
 with open('day08.txt') as file:
     data = file.readlines()
 
-map = []
-aerials = []
+def write_map(map):
+    total = 0
+    for line in map:
+        print(''.join(line))
+        for character in line:
+            if character != '.':
+                total += 1
+    print(total)
+
+map, aerials = [], []
 
 for y, line in enumerate(data):
-    temp = []
+    row = []
     for x, character in enumerate(line[:-1]):
-        temp.append(character)
+        row.append(character)
         if character != '.':
             aerials.append((character, y, x))
-    map.append(temp)
+    map.append(row)
 
 for [(one_f, one_y, one_x), (two_f, two_y, two_x)] in itertools.combinations(aerials, r = 2):
 
@@ -45,14 +52,5 @@ for [(one_f, one_y, one_x), (two_f, two_y, two_x)] in itertools.combinations(aer
             while next_y <= len(map) - 1 and next_x >= 0:
                 map[next_y][next_x] = '#'
                 next_y, next_x = next_y + diff_y, next_x - diff_x
-
-def write_map(map):
-    total = 0
-    for line in map:
-        print(''.join(line))
-        for i in line:
-            if i != '.':
-                total += 1
-    print(total)
 
 write_map(map)
