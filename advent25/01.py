@@ -1,9 +1,6 @@
-file = open("01.txt")
-data = file.readlines()
-
 dial, total = 50, 0
 
-for instruction in data:
+for instruction in open("01.txt"):
     direction = instruction[0]
     gross_magnitude = int(instruction[1:])
     new_dial = dial
