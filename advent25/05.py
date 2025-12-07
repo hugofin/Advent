@@ -23,7 +23,7 @@ def collapse(listOf):
                 break
 
         if (not added):                                                 # lower-upper---start-stop
-            new_ranges.append((start, stop))
+            new_ranges.append((start, stop))                            # start-stop---lower-upper
     return new_ranges
 
 fresh_ranges = []

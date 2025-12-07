@@ -1,6 +1,3 @@
-file = open("02.txt")
-data = file.readlines()[0].split(',')
-
 total = 0
 
 def compare(length, size, number):
@@ -10,7 +7,7 @@ def compare(length, size, number):
             return False
     return True
 
-for product_range in data:
+for product_range in open("02.txt").readlines()[0].split(','):
     product_segments = product_range.split('-')
     lower = int(product_segments[0])
     upper = int(product_segments[1])
